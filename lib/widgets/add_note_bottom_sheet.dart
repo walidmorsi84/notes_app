@@ -13,11 +13,11 @@ class AddNoteBottomSheet extends StatelessWidget {
         physics: BouncingScrollPhysics(),
         child: Column(
           children: [
-            SizedBox(height: 32),
+            SizedBox(height: 16),
             CustomTextField(hint: 'Title'),
             SizedBox(height: 16),
             CustomTextField(hint: 'Content', maxLines: 5),
-            SizedBox(height: 32),
+            SizedBox(height: 18),
             CustomButton(),
             SizedBox(height: 16),
           ],
