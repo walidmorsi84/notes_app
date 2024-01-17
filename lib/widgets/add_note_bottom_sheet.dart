@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notes_app/cubits/add_note_cubit/add_note_state.dart';
 import 'package:notes_app/widgets/add_note_form.dart';
@@ -27,8 +26,14 @@ class AddNoteBottomSheet extends StatelessWidget {
             //AbsorbPointer is used to freeze all actions while button is loading
             return AbsorbPointer(
               absorbing: state is AddNoteLoadingState ? true : false,
-              child: const SingleChildScrollView(
-                child: AddNoteForm(),
+              child: Padding(
+                padding: EdgeInsets.only(
+                    // padding bottom with media query with view insets bottom
+                    // to show bottom sheet above device keyboard
+                    bottom: MediaQuery.of(context).viewInsets.bottom),
+                child: const SingleChildScrollView(
+                  child: AddNoteForm(),
+                ),
               ),
             );
           },

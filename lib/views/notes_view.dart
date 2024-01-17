@@ -12,6 +12,8 @@ class NotesView extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
           onPressed: () {
             showModalBottomSheet(
+              // this bool attribute to make bottom sheet scroll when keyboard is shown
+              isScrollControlled: true,
               context: context,
               builder: (context) {
                 return const AddNoteBottomSheet();
