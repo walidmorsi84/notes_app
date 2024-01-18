@@ -10,27 +10,24 @@ class NotesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => NotesCubit(),
-      child: Scaffold(
-        floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              showModalBottomSheet(
-                // this bool attribute to make bottom sheet scroll when keyboard is shown
-                isScrollControlled: true,
-                context: context,
-                builder: (context) {
-                  return const AddNoteBottomSheet();
-                },
-              );
-            },
-            backgroundColor: kPrimaryColor,
-            child: const Icon(
-              Icons.add,
-              color: Colors.black,
-            )),
-        body: const NotesViewBody(),
-      ),
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            showModalBottomSheet(
+              // this bool attribute to make bottom sheet scroll when keyboard is shown
+              isScrollControlled: true,
+              context: context,
+              builder: (context) {
+                return const AddNoteBottomSheet();
+              },
+            );
+          },
+          backgroundColor: kPrimaryColor,
+          child: const Icon(
+            Icons.add,
+            color: Colors.black,
+          )),
+      body: const NotesViewBody(),
     );
   }
 }
