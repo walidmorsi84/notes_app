@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/edit_note_view.dart';
 
 class CustomNoteItem extends StatelessWidget {
-  const CustomNoteItem({super.key});
+  const CustomNoteItem({super.key, required this.note});
+
+  final NoteModel note;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +21,7 @@ class CustomNoteItem extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: const Color(0xffffcd7b),
+            color: Color(note.color),
             borderRadius: BorderRadius.circular(16),
           ),
           child: Column(
@@ -26,15 +29,16 @@ class CustomNoteItem extends StatelessWidget {
             children: [
               ListTile(
                 contentPadding: EdgeInsets.zero,
-                title: const Text(
-                  'Flutter Tips',
-                  style: TextStyle(color: Colors.black, fontSize: 26),
+                title: Text(
+                  note.title,
+                  style: const TextStyle(color: Colors.black, fontSize: 26),
                 ),
-                subtitle: const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 10),
+                subtitle: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
                   child: Text(
-                    'Build your career with Tharwat Samy',
-                    style: TextStyle(color: Color(0xff8d632c), fontSize: 18),
+                    note.subTitle,
+                    style:
+                        const TextStyle(color: Color(0xff8d632c), fontSize: 18),
                   ),
                 ),
                 trailing: IconButton(
@@ -50,9 +54,9 @@ class CustomNoteItem extends StatelessWidget {
                   ),
                 ),
               ),
-              const Text(
-                'Jan 6, 2023',
-                style: TextStyle(color: Color(0xff8d632c), fontSize: 12),
+              Text(
+                note.date,
+                style: const TextStyle(color: Color(0xff8d632c), fontSize: 12),
               ),
             ],
           ),
