@@ -46,7 +46,9 @@ class CustomNoteItem extends StatelessWidget {
                     tapTargetSize:
                         MaterialTapTargetSize.shrinkWrap, // the '2023' part
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    note.delete();
+                  },
                   icon: const Icon(
                     FontAwesomeIcons.trash,
                     color: Colors.black,
