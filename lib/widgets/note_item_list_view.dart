@@ -7,6 +7,7 @@ import 'package:notes_app/widgets/custom_note_item.dart';
 
 class NoteItemListView extends StatelessWidget {
   const NoteItemListView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<NotesCubit, NotesState>(
